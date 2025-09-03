@@ -1,21 +1,20 @@
 from backend.service.user_service import UserService
-from flask import request
+from flask import Blueprint, request
 from backend.utils.response.response_helper import api_response
 from backend.middleware.auth.auth_middleware import authentication
-from backend.utils.route.smart_blueprint import SmartBlueprint
 
-user_bp = SmartBlueprint("user", __name__)
+user_bp = Blueprint("user", __name__)
 user_service = UserService()
 
 @user_bp.route("/create", methods=["POST"])
-@authentication(rank=0)
+# @authentication(rank=0)
 def create_user():
     data = request.get_json()
     result = user_service.create_user(data)
     return api_response(data=result)
 
 @user_bp.route("/get-all", methods=["GET"])
-@authentication(rank=3)
+# @authentication(rank=3)
 def get_all_user():
     result = user_service.get_all_user()
     return api_response(data=result)

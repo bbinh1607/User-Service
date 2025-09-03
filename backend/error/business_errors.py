@@ -58,4 +58,9 @@ class Forbidden(BusinessError):
     """Lỗi khi user không có quyền truy cập."""
     def __init__(self):
         super().__init__("Lỗi khi user không có quyền truy cập", 403)
+             
+class RefrechTokenNotFount(BusinessError):
+    """Lỗi khi user không có quyền truy cập."""
+    def __init__(self):
+        super().__init__("Không tìm thấy refrech token", 404)
         

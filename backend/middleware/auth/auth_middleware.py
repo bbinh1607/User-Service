@@ -9,13 +9,10 @@ def authentication(role=None, rank=None):
         def wrapper(*args, **kwargs):
             if (role is not None and role.lower() == "guest") or (rank == 0):
                 return f(*args, **kwargs)
-
             auth_header = request.headers.get("Authorization", "")
             if not auth_header.startswith("Bearer "):
                 raise Unauthorized()
-
             token = auth_header.replace("Bearer ", "").strip()
-
             try:
                 payload = decode_token(token, type="access")
                 g.user_id = payload.get("sub")

@@ -12,13 +12,18 @@ class RefreshTokenRepository:
         self.db.commit()
         return refresh_token_entity
     
-    def get_refresh_token(self, token):
-        return self.db.query(RefreshTokenEntity).filter(RefreshTokenEntity.token == token).first()
+    def get_refresh_token(self, refresh_token):
+        return self.db.query(RefreshTokenEntity).filter(RefreshTokenEntity.refresh_token == refresh_token).first()
     
     def delete_refresh_token_by_user_id(self, id):
         self.db.query(RefreshTokenEntity).filter(RefreshTokenEntity.user_id == id).delete()
         self.db.commit()
         return self.db.query(RefreshTokenEntity).filter(RefreshTokenEntity.user_id == id).first()
+    
+    def delete_refresh_token_by_refresh_token(self, refresh_token):
+        self.db.query(RefreshTokenEntity).filter(RefreshTokenEntity.refresh_token == refresh_token).delete()
+        self.db.commit()
+        return True
     
     def update_refresh_token(self, refresh_token_entity):
         self.db.query(RefreshTokenEntity).filter(RefreshTokenEntity.id == refresh_token_entity.id).update(refresh_token_entity)
