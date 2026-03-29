@@ -24,6 +24,11 @@ def get_user_by_id(id):
     result = user_service.get_user_by_id(id)
     return api_response(data=result)
 
+@user_bp.route("/by-username/<username>", methods=["GET"])
+def get_user_by_usernme(username):
+    result = user_service.get_user_by_username(username)
+    return api_response(data=result)
+
 @user_bp.route("/<id>", methods=["DELETE"])
 def delete_user_by_id(id):
     result = user_service.delete_user(id)

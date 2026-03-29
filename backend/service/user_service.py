@@ -18,6 +18,8 @@ class UserService:
         if user.role_id is None:
             user.role_id = self.role_service.get_role_by_name("guest").id
         user = self.user_repository.create_user(user)
+        print(user)
+        print("user")
         return UserResponseSchema().dump(user)
     
     def get_user_by_id(self, user_id: str):

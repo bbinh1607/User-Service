@@ -13,7 +13,8 @@ def generate_token(user):
         "rank": user.role.rank,
         "type": "access",
         "iat": now,
-        "exp": now + timedelta(hours=ACCESS_TOKEN_EXPIRES)
+        "exp": now + timedelta(minutes=ACCESS_TOKEN_EXPIRES)
+        # "exp": now + timedelta(hours=ACCESS_TOKEN_EXPIRES)
     }
     access_token = jwt.encode(access_token_payload, SECRET_KEY, algorithm=ALGORITHM)
     

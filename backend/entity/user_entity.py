@@ -10,6 +10,7 @@ class UserEntity(BaseEntity):
     email = Column(String)
     phone = Column(String)
     address = Column(String)
+    image_url = Column(String)
     is_active = Column(Boolean, default=True)
     
     role_id = Column(String, ForeignKey("role.id"))

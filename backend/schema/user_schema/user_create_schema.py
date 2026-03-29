@@ -5,6 +5,7 @@ from backend.entity.user_entity import UserEntity
 class UserCreateSchema(Schema):
     username = fields.Str(required=True )
     password = fields.Str(required=True )
+    image_url = fields.Str()
     email = fields.Str()
     phone = fields.Str()
     address = fields.Str()

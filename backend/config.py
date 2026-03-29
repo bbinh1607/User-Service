@@ -10,7 +10,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "default_secret_key")
 REFRESH_TOKEN_EXPIRES = int(os.getenv("REFRESH_TOKEN_EXPIRES", 7))
 ACCESS_TOKEN_EXPIRES = int(os.getenv("ACCESS_TOKEN_EXPIRES", 1))
 ALGORITHM = os.getenv("ALGORITHM", "HS256")
-
+FILE_SERVICE = os.getenv("FILE_SERVICE")
 # Lấy DATABASE_PATH từ .env hoặc default
 raw_db_path = os.getenv("DATABASE_PATH", "sqlite:///user.db")
 

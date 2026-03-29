@@ -32,12 +32,12 @@ class UnauthorizedAction(BusinessError):
 class UserNotFound(BusinessError):
     """Lỗi khi user không tồn tại."""
     def __init__(self):
-        super().__init__("User not found", 404)
+        super().__init__("The username provided is invalid or not found", 400)
 
 class InvalidPassword(BusinessError):
     """Lỗi khi mật khẩu không hợp lệ."""
     def __init__(self):
-        super().__init__("Invalid password", 401)
+        super().__init__("Incorrect password. Please try again.", 401)
         
 class TokenExpired(BusinessError):
     """Lỗi khi token hết hạn."""
@@ -52,7 +52,7 @@ class InvalidToken(BusinessError):
 class Unauthorized(BusinessError):
     """Lỗi khi user không được phép truy cập."""
     def __init__(self):
-        super().__init__("Unauthorized", 401)
+        super().__init__("Unauthorized", 403)
 
 class Forbidden(BusinessError):
     """Lỗi khi user không có quyền truy cập."""
@@ -62,5 +62,5 @@ class Forbidden(BusinessError):
 class RefrechTokenNotFount(BusinessError):
     """Lỗi khi user không có quyền truy cập."""
     def __init__(self):
-        super().__init__("Không tìm thấy refrech token", 404)
+        super().__init__("Không tìm thấy refrech token", 403)
         
